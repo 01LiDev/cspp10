@@ -1,15 +1,24 @@
 s = input()
-n1= s[1]
-n2= s[4]
-sign=s[2]
+n1= s[0]
+n2= s[2]
+sign=s[1]
+total = s
 if sign=="+":
-    s = s[1] + s[4]
+    total = int(n1) + int(n2)
+    print ("The result is " + str(total))
 if sign=="-":
-    s=s[1] - s[4]
+    total= int(n1) - int(n2)
+    print ("The result is " + str(total))
 elif sign== "/":
-    s = s[1]/s[4]
+    total = int(n1)/int(n2)
+    print ("The result is " + str(total))
 elif sign=="*":
-    s =s[1]*s[4]
+    total = int(n1)*int(n2)
+    print ("The result is " + str(total))
 elif sign == "%":
-    s =s[1]%s[4]
-print ("The result is " + s)
+    total = int(n1)%int(n2)
+    print ("The result is " + str(total))
+else: 
+    print ("none")
+
+
