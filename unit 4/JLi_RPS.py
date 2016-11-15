@@ -1,24 +1,12 @@
 import random
-
-#   arguments: none
-#   purpose: present player with options, use input() to get player move
-#   returns: the player's move as either 'r', 'p', or 's'
 def get_p1_move():
     player_action = input("R;P;S: ")
     return player_action
-#   arguments: none
-#   purpose: randomly generates the computer's move,
-#            either 'r' 'p' or 's'
-#   returns: the computer's randomly generated move
 def get_comp_move():
     comp_action= random.choice( ['R', 'P', 'S'] )
     return comp_action
-#function name: get_rounds
-#   arguments: none
-#   purpose: allows the user to choose a number of rounds from 1 to 9.
-#   returns: the user-chosen number of rounds
 def get_rounds():
-    user_rounds=input("Rounds:")
+    user_rounds=input.list(1,10("Rounds:"))
     return user_rounds
 #function name: get_round_winner
 #   arguments: player move, computer move
@@ -30,11 +18,11 @@ def get_rounds():
 #               "tie" if it's a tie
 def get_round_winner(p1move, cmove):
     if p1move > cmove:
-        return("player win")
+        return p1move
     elif cmove > p1move:
-        return("Comp win")
+        return cmove
     else:
-        return ("tie")
+        return tie
 
 #function name: get_full_move
 #   arguments: a single letter move 'r','p', or 's'
@@ -44,14 +32,18 @@ def get_round_winner(p1move, cmove):
 #               "Paper" if given "p"
 #               "Scissors" if given "s"
 def get_full_move(shortmove):
-    return 1
-    #code here
+    R = "Rock"
+    P = "Paper"
+    S = "Scissors"
+    
+    
 
 #function name: print_score
 #   arguments: player score, computer score, number of ties
 #   purpose: prints the scoreboard
 #   returns: none
 def print_score(pscore, cscore, ties):
+    score = [0,0]
     return 1
     #code here
 
@@ -61,7 +53,12 @@ def print_score(pscore, cscore, ties):
 #               all the other functions to create RPS
 #   returns: none
 def rps():
-    #code here
+    tie = int(0)
+    if player_action == "R" and comp_action == "s":
+        return player_action 1
+    elif "r" == "r":
+        
+    
     print(get_comp_move())
 
 #function name: tests
