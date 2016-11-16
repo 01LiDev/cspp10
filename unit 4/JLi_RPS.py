@@ -1,65 +1,51 @@
 import random
 def get_p1_move():
-    player_action = input("R;P;S: ")
-    return player_action
+    p1move = input("Rock;Paper;Scissors: ")
+    return p1move
 def get_comp_move():
-    comp_action= random.choice( ['R', 'P', 'S'] )
-    return comp_action
+    cmove= random.choice( ['Rock', 'Paper', 'Scissors'] )
+    return cmove
 def get_rounds():
-    user_rounds=input.list(1,10("Rounds:"))
-    return user_rounds
-#function name: get_round_winner
-#   arguments: player move, computer move
-#   purpose: based on the player and computer's move, determine
-#            the winner or if it's a tie
-#   returns: returns a string based on the following:
-#               "player" if player won
-#               "comp" if computer won
-#               "tie" if it's a tie
+    rounds = int(input("Rounds: "))
+    return rounds
 def get_round_winner(p1move, cmove):
-    if p1move > cmove:
+    if p1move == "Rock" and cmove == "Scissors":
         return p1move
-    elif cmove > p1move:
+    elif p1move == "Scissors" and cmove == "Paper":
+        return p1move
+    elif p1move == "Paper" and cmove == "Rock":
+        return p1move
+    elif cmove == "Rock" and p1move =="Scissors":
         return cmove
-    else:
-        return tie
-
-#function name: get_full_move
-#   arguments: a single letter move 'r','p', or 's'
-#   purpose: returns the "full" word of a given move
-#   returns: returns a string based on the following:
-#               "Rock" if given "r"
-#               "Paper" if given "p"
-#               "Scissors" if given "s"
+    elif cmove == "Paper" and p1move =="Rock":
+        return cmove
+    elif cmove == "Scissors" and p1move =="Paper":
+        return cmove
+    elif p1move == cmove:
+        return ties
 def get_full_move(shortmove):
-    R = "Rock"
-    P = "Paper"
-    S = "Scissors"
-    
-    
-
-#function name: print_score
-#   arguments: player score, computer score, number of ties
-#   purpose: prints the scoreboard
-#   returns: none
+    if p1move == "R" or "r" or "rock":
+        return "Rock"
+    if p1move == "P" or "p" or "paper":
+        return "Paper"        
+    if p1move == "S" or "s" or "scissors":
+        return "Scissors"    
 def print_score(pscore, cscore, ties):
-    score = [0,0]
-    return 1
-    #code here
-
+    print("Scoreboard")
+    print("----------")
+    print("Player: {}".format(pscore))
+    print("Computer: {}".format(cscore))
+    print("Ties: {}".format(ties))
 #function name: rps
 #   arguments: none
 #   purpose: the main game loop.  This should be the longest, using
 #               all the other functions to create RPS
 #   returns: none
 def rps():
-    tie = int(0)
-    if player_action == "R" and comp_action == "s":
-        return player_action 1
-    elif "r" == "r":
-        
-    
-    print(get_comp_move())
+    print (get_rounds())
+    print (get_p1_move())
+    print (get_comp_move())
+    print (print_score(p1move,cmove,ties))
 
 #function name: tests
 #   arguments: none
