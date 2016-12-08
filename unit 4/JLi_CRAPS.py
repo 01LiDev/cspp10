@@ -15,6 +15,8 @@ def validator():
             print("You don't have enough ")
         elif the_bet != int():
             print("Not a whole number")
+        elif the_bet == "hold":
+            return the_bet
         else:
             return the_bet
 def house():
@@ -22,37 +24,39 @@ def house():
     dice_2 = random.randint(1,6)
     sum_dice = dice_1 + dice_2
     print ("Rolled: {} and {}".format(dice_1,dice_2))
+    print ("First roll:{}".format(sum_dice))
     return sum_dice
 def first_roll():
     roll_1 = house()
-    while roll_1 == 2 or roll_1 == 3 or roll_1 == 12:
+    if roll_1 == 2 or roll_1 == 3 or roll_1 == 12:
         print ("You lost")
-        return "lost" and "house_win"
+        return "lost"
     if roll_1 == 7 or roll_1 == 11:
         print ("You win")
         return "win"
         
 def point_roll():
-    dice_1 = random.randint(1,6)
-    dice_2 = random.randint(1,6)
-    re_roll = dice_1 +dice_2
+    point_roll = house()
+    re_roll = house()
     if re_roll == 7 :
-        print "End round,You lost."
+        print ("End round,You lost.")
         return "lost"
-    elif re_roll == house():
-        print "You win"
+    elif re_roll == point_roll:
+        print ("You win")
         return "win"
-def score():
-    print ("-------------")
-    print ("House won {} rounds".format)
-    print ("")
-
-# def craps():
-#purpose:
-#arguments:
-#returns:
+def craps():
+    user_turn = player_bet()
+    house_turn = house()
+    detector = validator()
+    bank = piggy_bank()
+    if first_roll() == "win":
+        bank = bank + player_bet()
+    elif first_roll() == "lost":
+        bank = bank - player_bet()
+    elif  user_turn == "hold":
+        print ("player holded bank amount {}$".format(bank))
+        
+           
     
-    
-    
-# craps()
+craps()
  
