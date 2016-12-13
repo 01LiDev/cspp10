@@ -4,12 +4,13 @@ def piggy_bank():
     return piggy_bank
 def player_bet():
     print ("Bank Amount: {}".format (piggy_bank()))
-    user_bet = input("Do want to hold?[yes:no]:")
+    user_bet = str(input("Do want to hold?[yes:no]:"))
     bet = user_bet
+    
     while bet != "yes" or bet != "no":
         if bet == "yes":
             return "hold"
-            break
+            
         if bet == "no":   
             bet= int(input("Enter a whole number:"))
             return player_bet()
@@ -23,7 +24,7 @@ def validator():
             print("Invalid amount")
         elif player_bet() > piggy_bank():
             print("You don't have enough ")
-        elif player_bet() != int():
+        elif player_bet() != int(1:100):
             print("Not a whole number")
         elif player_bet() == "hold":
             return "holded"
@@ -75,6 +76,4 @@ def craps():
         elif validator() == "holded":
             print ("player holded bank amount {}$".format(bank))
         
-           
-    
 craps()
