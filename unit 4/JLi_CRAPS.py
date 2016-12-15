@@ -10,8 +10,8 @@ def player_bet():
     print ("Bank Amount: {}$".format (piggy_bank()))
     user_bet = int(input("How much do you want to bet?:"))
     return user_bet
-def validator():
-    the_bet = player_bet()
+def validator(user_bet):
+    the_bet = user_bet
     while the_bet < 1 or the_bet > 100:
         if the_bet < 1:
             print("Invalid amount")
@@ -41,14 +41,14 @@ def point_roll():
         return "win"
 def craps():
     print ("Game Start")
-    player = player_bet()
     roll_dices=dices()
     total_win = 0
-    detector = validator()
+    detector = validator(user_bet)
     bank = piggy_bank()
     point_dice=point_roll()
     if detector == "valid":
-        print ("You bet {}".format(player))
+        player = player_bet()
+        print ("You bet {}$".format(player))
         print ("House rolled {} ".format(roll_dices))
         if first_roll() == "win":
             total_win = player + player
@@ -68,7 +68,7 @@ def craps():
             bank = bank - player
             print ("You lost to house")
             print ("You now have {}$".format(bank))
-        elif validator() == "holded":
+        elif validator(user_bet) == "holded":
             print ("player holded bank amount {}$".format(bank))
         
 craps()
