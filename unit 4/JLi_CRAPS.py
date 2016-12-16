@@ -6,7 +6,7 @@ import random
 def piggy_bank():
     piggy_bank = int(100)
     return piggy_bank
-def player_bet():
+def player_bet(user_bet):
     print ("Bank Amount: {}$".format (piggy_bank()))
     user_bet = int(input("How much do you want to bet?:"))
     return user_bet
@@ -47,7 +47,7 @@ def craps():
     bank = piggy_bank()
     point_dice=point_roll()
     if detector == "valid":
-        player = player_bet()
+        player = player_bet(user_bet)
         print ("You bet {}$".format(player))
         print ("House rolled {} ".format(roll_dices))
         if first_roll() == "win":
