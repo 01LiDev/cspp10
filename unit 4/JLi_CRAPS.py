@@ -1,8 +1,4 @@
 import random
-#funtion
-#
-#
-#
 def piggy_bank():
     piggy_bank = int(100)
     return piggy_bank
@@ -10,71 +6,71 @@ def player_bet():
     print ("Bank Amount: {}$".format (piggy_bank()))
     user_bet = int(input("How much do you want to bet?:"))
     return user_bet
-def validator():
-    while player_bet() < 1 or player_bet() > 100:
-        if player_bet() < 1:
+def validator(user_bet):
+    while user_bet < int(1) or user_bet > int(100):
+        if user_bet < int(1):
             print("Invalid amount")
-        elif player_bet() > player_bet():
+        elif user_bet > user_bet:
             print("You don't have enough ")
-        elif player_bet() != int():
+        elif user_bet != int():
             print("Not a whole number")
-        elif player_bet() == "hold":
+        elif user_bet == "hold":
             return "holded"
-    return "valid"
+        else:
+            return "valid"
 def dice_1():
-    dice_1 = random.randint(1,6)
+    dice_1 = int(random.randint(1,6))
     return dice_1
 def dice_2():
-    dice_2 = random.randint(1,6)
+    dice_2 = int(random.randint(1,6))
     return dice_2
-def dice_sum():
-    sum_dice = dice_1() + dice_2()
+def dice_sum(dice_1, dice_2):
+    sum_dice = dice_1 + dice_2
     return sum_dice
-def first_roll():
-    if dice_sum() == 2 or dice_sum() == 3 or dice_sum() == 12:
+def first_roll(sum_dice):
+    if sum_dice == int(2) or sum_dice == int(3) or sum_dice == int(12):
         return "lost"
-    if dice_sum() == 7 or dice_sum() == 11:
+    if sum_dice == int(7) or sum_dice == int(11):
         return "win"
         
-def point_roll():
-    if dice_sum() == 7 :
+def point_roll(sum_dice):
+    if sum_dice == int(7) :
         return "lost"
-    elif dice_sum() == dice_sum():
+    elif sum_dice == sum_dice:
         return "win"
 def craps():
     print ("Game Start") 
-    dice1 = dice_1()
-    dice2 = dice_2()
-    roll_dices= dice_sum()
-    total_win = 0
-    detector = validator()
+    dice_1 = dice_1()
+    dice_2 = dice_2()
+    total_dice = dice_sum(dice_1, dice_2)
+    user_bet = player_bet()
+    total_win = int(0)
+    detector = validator(user_bet)
     bank = piggy_bank()
-    point_dice=point_roll()
-    player = player_bet()
+    point_dice=point_roll(sum_dice)
     while detector == "valid":
-        player = player_bet()
-        print ("You bet {}$".format(player))
-        print ("House rolled {} and {} ".format(dice1, dice2))
-        print ("Dice total is {}".format(roll_dices))
-        if first_roll() == "win":
-            total_win = player + player
+        print ("You bet {}$".format(user_bet))
+        print ("House rolled {} and {} ".format(dice_1, dice_2)
+        print ("Dice total is {}".format(total_dice))
+        if first_roll(sum_dice) == "win":
+            total_win = user_bet + user_bet
             bank = bank +total_win
             print ("You won")
             print ("You now have {}$".format(bank))
         elif point_dice == "win":
-            total_win = player + player
+            total_win = user_bet + user_bet
             bank = bank + total_win
             print ("You won")
             print ("You now have {}$".format(bank))
-        elif first_roll() == "lost":
-            bank = bank - player
+        elif first_roll(sum_dice) == "lost":
+            bank = bank - user_bet
             print ("You lost to house")
             print ("You now have {}$".format(bank))
         elif point_dice == "lost":
-            bank = bank - player
+            bank = bank -user_bet
             print ("You lost to house")
             print ("You now have {}$".format(bank))
-        elif validator() == "holded":
+        elif validator(user_bet) == "holded":
             print ("player holded bank amount {}$".format(bank))
         else:
             break
