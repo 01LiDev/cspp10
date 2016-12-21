@@ -22,16 +22,25 @@ def dice_sum():
     print ("Dice total is {}".format(sum_dice))
     return sum_dice
 def first_roll(sum_dice):
-    if sum_dice == 2 or sum_dice == 3 or sum_dice == 12:
-        return "lost"
-    if sum_dice == 7 or sum_dice == 11:
-        return "win"
+        if sum_dice == 2 or sum_dice == 3 or sum_dice == 12:
+            print ("You lost to house")
+            return "lost"
+        elif sum_dice == 7 or sum_dice == 11:
+            print ("You won against house")
+            return "win"
+        else:
+            return sum_dice
+        
         
 def point_roll(sum_dice):
-    if sum_dice == 7 :
-        return "lost"
-    elif sum_dice == sum_dice:
-        return "win"
+    point_dice = sum_dice
+    while True:
+        if point_dice == 7:
+            print ("You lost to house")
+            return "lost"
+        elif point_dice == dice_sum():
+            print ("You won against house")
+            return "win"
 def craps():
     print ("Game Start") 
     print ("----------")
@@ -46,19 +55,15 @@ def craps():
         point_dice=point_roll(sum_dice)
         if result == "win":
             bank = bank + user_bet
-            print ("You won")
             print ("You now have {}$".format(bank))
-        elif point_dice == "win":
+        elif point_dice == result:
             bank = bank + user_bet
-            print ("You won")
             print ("You now have {}$".format(bank))
         elif result == "lost":
             bank = bank - user_bet
-            print ("You lost to house")
             print ("You now have {}$".format(bank))
         elif point_dice == "lost":
             bank = bank - user_bet
-            print ("You lost to house")
             print ("You now have {}$".format(bank))
         elif validator(user_bet) == "holded":
             print ("player holded bank amount {}$".format(bank))
