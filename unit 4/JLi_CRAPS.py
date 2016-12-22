@@ -38,7 +38,7 @@ def point_roll(sum_dice):
         if point_dice == 7:
             print ("You lost to house")
             return "lost"
-        elif point_dice == dice_sum():
+        elif point_dice == point_dice:
             print ("You won against house")
             return "win"
 def craps():
