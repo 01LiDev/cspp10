@@ -13,7 +13,7 @@ def validator(user_bet):
         elif user_bet == "hold":
             return "holded"
         else:
-            return "valid"
+            return "valid" and user_bet
 def dice_sum():
     dice_1 = random.randint(1,6)
     dice_2 = random.randint(1,6)
@@ -29,42 +29,48 @@ def first_roll(sum_dice):
             print ("You won against house")
             return "win"
         else:
-            return sum_dice
+            print ("You point roll is now:{}".format(point_roll(sum_dice)))
+            point_roll(sum_dice)
         
         
 def point_roll(sum_dice):
-    point_dice = sum_dice
     while True:
-        if point_dice == 7:
+        if sum_dice == 7:
             print ("You lost to house")
             return "lost"
-        elif point_dice == point_dice:
+        elif point_roll(sum_dice) == first_roll(sum_dice):
             print ("You won against house")
             return "win"
 def craps():
     print ("Game Start") 
     print ("----------")
-    detector = "valid"
     bank = 100
+    user_bet = player_bet()
     print ("Bank:{}$".format(bank))
-    while detector == "valid":
-        user_bet = player_bet()
+    while validator(user_bet) == "valid":
         print ("You bet {}$".format(user_bet))
-        sum_dice = dice_sum()
-        result = first_roll(sum_dice)
-        point_dice=point_roll(sum_dice)
-        if result == "win":
-            bank = bank + user_bet
-            print ("You now have {}$".format(bank))
-        elif point_dice == result:
-            bank = bank + user_bet
-            print ("You now have {}$".format(bank))
-        elif result == "lost":
-            bank = bank - user_bet
-            print ("You now have {}$".format(bank))
-        elif point_dice == "lost":
-            bank = bank - user_bet
-            print ("You now have {}$".format(bank))
-        elif validator(user_bet) == "holded":
-            print ("player holded bank amount {}$".format(bank))
+        while bank != 0:
+            sum_dice = dice_sum()
+            result = first_roll(sum_dice)
+            point_dice=point_roll(sum_dice)
+            if result == "win":
+                bank = bank + user_bet
+                print ("You now have {}$".format(bank))
+            elif point_dice == result:
+                bank = bank + user_bet
+                print ("You now have {}$".format(bank))
+            elif result == "lost":
+                bank = bank - user_bet
+                print ("You now have {}$".format(bank))
+            elif point_dice == "lost":
+                bank = bank - user_bet
+                print ("You now have {}$".format(bank))
+            elif bank <= 0:
+                print ("Game End")
+                print ("Your Broke.....")
+                break
+            elif validator(user_bet) == "holded":
+                print ("player holded bank amount {}$".format(bank))
+            else: 
+                player_bet()
 craps()
