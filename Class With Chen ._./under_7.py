@@ -21,14 +21,14 @@ def roll2dice():
 # returns: the bet
 def get_bet(bank):
     # ask the player how much they want to bet
-    player_bet = int(input("how much do you want to bet?" " "))
+    player_bet = int(input("how much do you want to bet?-:"))
     # if player's bet is more than they have
-    if player_bet < bank:
-        print "Don't have enough!!!" + player_bet
+    while player_bet > bank:
+        print ("Don't have enough!!!")
+        player_bet = int(input("how much do you want to bet?-:"))
     # if player's bet is valid, then return
     #   the bet
-    elif player_bet > bank:
-         return player_bet
+    return player_bet
 
 # function that finds the range given a dice roll
 # name: get_range
@@ -45,7 +45,7 @@ def get_range(first_result):
     elif first_result > 7:
         return "under7"
     # if the sum is 7, return "equal7"
-    elif first_result == 7:
+    else:
         return "equal7"
 # function for getting the user's choice of range
 # name: choose_range
@@ -56,13 +56,22 @@ def choose_range():
     # present user with choices "over7", "under7",
     #   or "equal7"
     user_choice = input("What do you think it is?[over7:under7:equal7]")
-    while user_choice != "over7" or user_choice != "under7" or user_choice != "equal7":
-        print ("Enter a correct choice.....")
-        user_choice
-    # return their choice
-    else:
-        return user_choice
+    return user_choice
 # function for the main game
 def gamble():
-    choice_result = get_range(first_result)
-    
+    bank = 100
+    place_bet = get_bet(bank)
+    choice_bet = choose_range()
+    while place_bet > bank:
+        first_result = roll2dice()
+        choice_got = get_range(first_result)
+        first_result = roll2dice()
+        if choice_bet == choice_got:
+            bank = bank + place_bet * 2
+            print ("You Win!")
+            if choice_bet == 7:
+                bank = bank + place_bet * 4
+        elif choice_bet != choice_got:
+            print ("You Lose!")
+gamble()
+        
