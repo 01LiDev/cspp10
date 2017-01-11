@@ -1,6 +1,10 @@
 list1 = []
-print ("Entering a zero will exit the program")
-print ("Entering a negative number will remove the POSITIVE value of the number from the list")
-print ("Entering a positive number will add that number to the list")
-while True:
-    user = input("")
+user = 1
+while user != 0:
+    user = int(input("Enter a Number to list or remove:  "))
+    list1.append(user)
+    print ("some list :{}".format(list1))
+    if user < -(user):
+        user = user * -(user)
+        list1.remove(user)
+        print ("some list :{}".format(list1))
