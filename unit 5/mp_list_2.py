@@ -12,7 +12,7 @@ while True:
     elif user == "exit":
         break
     elif user == "":
-        
+        user = input("Enter a number, sum , clear , length , exit: ").lower()
     else:
         list_1.append(int(user))
         print (list_1)
