@@ -6,16 +6,15 @@ dict_assg = {
 #Ask the user for both the key and the value.  Treat both as Strings.\
 def add(dict_assg):
     key_input = input("Enter a key: ")
-    return key_input
     value_input = input("Enter a value")
-    return value_input
     print("New key-value pair {},{}".format(key_input,value_input))
     dict_assg[key_input] = value_input
     
 #This should allow the user to remove a key-value pair from the dictionary.
 #Ask the user for just the key and delete based on the key.
-# def remove_key():
-
+def remove_key():
+    keyval_rem = input("The key you want to remove: ")
+    
 #This should allow the user to remove multiple key-value pairs from the 
 #dictionary based on a value.  Ask the user for just a value and remove all keys 
 #from the dictionary that have that value.
@@ -30,6 +29,11 @@ def add(dict_assg):
 #This should run the print function and then end the program.
 # def exit():
 
+#The main function
+def main():
+    while True:
+        options = input("")
+    
 add(dict_assg)
 pprint(dict_assg)
 
