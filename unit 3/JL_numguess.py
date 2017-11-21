@@ -1,6 +1,7 @@
 import random
+h = int(input("How high: "))
 user = int(input("Guess the number: "))
-correct=random.randint(1,100)
+correct=random.randint(1,h)
 guesses= 0
 while user != correct:
     guesses = guesses + 1
@@ -11,7 +12,7 @@ while user != correct:
     elif user > correct:
         print("Too high")
         user = int(input("Guess the number: "))
-    else:
+    else:  
         print (user)
 print ("You are correct. It took you {} tries.".format(guesses))
     

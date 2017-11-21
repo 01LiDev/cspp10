@@ -5,8 +5,8 @@ dict_assg = {
 #This should allow the user to add a new key-value pair to the dictionary.
 #Ask the user for both the key and the value.  Treat both as Strings.\
 def add(dict_assg):
-    key_input = input("Enter a key: ")
-    value_input = input("Enter a value: ")
+    key_input = input("Enter the word: ")
+    value_input = input("Enter the definition: ")
     print("New key-value pair {},{}".format(key_input,value_input))
     if key_input not in dict_assg:
         dict_assg[key_input] = value_input
@@ -19,7 +19,7 @@ def add(dict_assg):
 def remove_key(dict_assg):
     keyval_rem = input("The key you want to remove: ")
     if keyval_rem in dict_assg:
-        del [keyval_rem]
+        del dict_assg[keyval_rem]
 
 #This should allow the user to change a key/value pair in the dictionary.
 def update(dict_assg):
@@ -39,7 +39,7 @@ def exit():
 
 #The main function
 def main():
-    print("Press enter to continue or Exit to stop")
+    print("Press Enter to continue or Exit to stop")
     options = input("Enter: ").lower()
     while options != "exit":
         print("Your options are Add|Remove|Update|Pprint|Exit")
@@ -57,8 +57,10 @@ def main():
             break
         
         
-main()
-
-
+main() 
+#NotDepressed
+#FGreat
+#ItWorks
+#BreakIt_ScrewYou
 
 
